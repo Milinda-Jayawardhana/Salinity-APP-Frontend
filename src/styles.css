@@ -106,11 +106,26 @@ table {
   color: #ffc4c4;
 }
 
+.status-time,
+.status-trend,
 .status-state {
-  display: flex;
+  display: grid;
+  grid-template-columns: 92px 1fr;
   align-items: center;
   gap: 10px;
   margin: 0;
+}
+
+.status-label {
+  color: rgba(244, 247, 250, 0.8);
+}
+
+.status-value {
+  color: rgba(244, 247, 250, 0.92);
+}
+
+.mobile-status-label {
+  display: none;
 }
 
 .tds-status-badge {
@@ -433,7 +448,93 @@ th {
     padding: 24px;
   }
 
+  .hero-status {
+    gap: 8px;
+    border-radius: 16px;
+    padding: 14px;
+  }
+
+  .hero-status > .status-pill {
+    display: none;
+  }
+
+  .status-time,
+  .status-trend,
+  .status-state {
+    grid-template-columns: 86px minmax(0, 1fr);
+    margin: 0;
+  }
+
+  .status-time {
+    font-size: 0.84rem;
+    grid-template-columns: 86px minmax(0, 1fr) auto;
+  }
+
+  .mobile-status-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .tds-status-badge {
+    min-width: 76px;
+    padding: 6px 9px;
+    font-size: 0.78rem;
+  }
+
   .panel {
     padding: 18px;
+  }
+
+  .table-panel .panel-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .table-panel .panel-controls {
+    width: 100%;
+  }
+
+  .table-panel .controls-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .table-panel .panel-controls label {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .table-panel .panel-controls select,
+  .table-panel .panel-controls input[type="datetime-local"] {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .table-panel .panel-note {
+    grid-column: 1 / -1;
+    justify-self: end;
+    margin: 0;
+    font-size: 0.78rem;
+    text-align: right;
+  }
+
+  .table-footer {
+    gap: 8px;
+  }
+
+  .table-summary {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: right;
   }
 }

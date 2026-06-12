@@ -313,12 +313,19 @@ function App() {
           <span className={`status-pill ${error ? "status-error" : "status-live"}`}>
             {error ? "Connection issue" : "Live feed active"}
           </span>
-          <p className="status-time">Last update: {formatTime(latest?.receivedAt)}</p>
+          <p className="status-time">
+            <span className="status-label">Last update:</span>
+            <span className="status-value">{formatTime(latest?.receivedAt)}</span>
+            <span className={`mobile-status-label ${error ? "status-error" : "status-live"}`}>
+              {error ? "Issue" : "Live"}
+            </span>
+          </p>
           <p className="status-trend">
-            Trend: <strong>{overview?.trend ?? "stable"}</strong>
+            <span className="status-label">Trend:</span>
+            <strong className="status-value">{overview?.trend ?? "stable"}</strong>
           </p>
           <p className="status-state">
-            Status:
+            <span className="status-label">Status:</span>
             <span className={`tds-status-badge ${latestStatus.className}`}>
               {latestStatus.label}
             </span>
@@ -538,7 +545,7 @@ function App() {
             </button>
           </div>
           <div className="table-summary">
-            Showing {pagedReadings.length} of {filteredReadings.length} matching readings
+            Showing {pagedReadings.length} of {filteredReadings.length}
           </div>
         </div>
       </section>
